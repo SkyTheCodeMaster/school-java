@@ -11,9 +11,8 @@ public class QuadraticFormula {
     double c = Double.parseDouble(scanner.nextLine());
     double test = Math.pow(b, 2) - 4*a*c;
     if (test > 0) {
-      System.out.println("The parabola has two roots.");
-      double root1 = -b + Math.sqrt(test) / 2*a;
-      double root2 = -b - Math.sqrt(test) / 2*a;
+      double root1 = (-b + Math.sqrt(test)) / 2*a;
+      double root2 = (-b - Math.sqrt(test)) / 2*a;
       System.out.printf("The parabola has two roots at %.2f and %.2f.",root1,root2);
     } else if (test == 0) {
       double root = -b / 2*a;
