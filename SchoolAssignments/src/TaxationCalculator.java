@@ -60,19 +60,19 @@ public class TaxationCalculator {
     // If their pay is less than 150, their tax bracket is A and they have no deduction.
     } else if (grossPay <= 500) {
       taxBracket = 'B';
-      deducted = grossPay - (grossPay*0.1);
+      deducted = (grossPay*0.1);
     // If their pay is less than 150, their tax bracket is A and they have no deduction.
     } else if (grossPay <= 750) {
       taxBracket = 'C';
-      deducted = grossPay - (grossPay*0.2);
+      deducted = (grossPay*0.2);
     // If their pay is less than 150, their tax bracket is A and they have no deduction.
     } else if (grossPay <= 1500) {
       taxBracket = 'D';
-      deducted = grossPay - (grossPay*0.29);
+      deducted = (grossPay*0.29);
     // If their pay is less than 150, their tax bracket is A and they have no deduction.
     } else {
       taxBracket = 'E';
-      deducted = grossPay - (grossPay*0.35);
+      deducted = (grossPay*0.35);
     }
     
     double netPay = grossPay - deducted;
@@ -80,7 +80,18 @@ public class TaxationCalculator {
       netPay -= 20;
     }
     
-    
+    // Begin printing the pay slip
+    System.out.printf("%s, %s\n", nameLast,nameFirst);
+    // Print out the hours worked and rate
+    System.out.printf("Hours worked: %.2f\tHourly rate: %.2f\n", hoursWorked,hourlyWage);
+    // Print the gross pay
+    System.out.printf("Gross pay: %.2f\n", grossPay);
+    // Print out the tax bracket and deduction
+    System.out.printf("Tax bracket: %s\tTax deduction: %.2f\n",taxBracket,deducted);
+    // Print out the net pay
+    System.out.printf("Net pay: %.2f\n", netPay);
+    // If they agreed to give to charity, display a message.
+    if (agree == 'y') { System.out.println("Thank you for your contribution to the Charity of Charityness."); }
     
     // Close the scanner object when finished to clean up resources.
     scanner.close();
