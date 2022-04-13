@@ -32,6 +32,18 @@ public class TaxationCalculator {
     System.out.print("Please enter your last name: ");
     // Take user input.
     String nameLast = scanner.nextLine();
+    // Ask the user for their hourly wage.
+    System.out.print("Please enter your hourly wage: ");
+    double hourlyWage = Double.parseDouble(scanner.nextLine());
+    // Ask the user for their hours worked.
+    System.out.print("Please enter the number of hours worked: ");
+    double hoursWorked = Double.parseDouble(scanner.nextLine());
+    // Ask the user if they want to contribute to charity.
+    System.out.print("Would you like to contribute to the Charity of Charityness? ");
+    String tmp1 = scanner.nextLine();
+    char agree = tmp1.toLowerCase().charAt(0);
+    
+    
     
     // Close the scanner object when finished to clean up resources.
     scanner.close();
