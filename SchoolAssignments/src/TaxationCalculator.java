@@ -28,20 +28,57 @@ public class TaxationCalculator {
     System.out.print("Please enter your first name: ");
     // Take user input.
     String nameFirst = scanner.nextLine();
+    
     // Ask the user for their last name.
     System.out.print("Please enter your last name: ");
     // Take user input.
     String nameLast = scanner.nextLine();
+    
     // Ask the user for their hourly wage.
     System.out.print("Please enter your hourly wage: ");
     double hourlyWage = Double.parseDouble(scanner.nextLine());
+    
     // Ask the user for their hours worked.
     System.out.print("Please enter the number of hours worked: ");
     double hoursWorked = Double.parseDouble(scanner.nextLine());
+    
     // Ask the user if they want to contribute to charity.
     System.out.print("Would you like to contribute to the Charity of Charityness? ");
     String tmp1 = scanner.nextLine();
     char agree = tmp1.toLowerCase().charAt(0);
+    
+    // Calculate gross pay
+    double grossPay = hoursWorked*hourlyWage;
+    
+    // Calculate their tax bracket
+    char taxBracket = 'Z';
+    double deducted = 0;
+    // If their pay is less than 150, their tax bracket is A and they have no deduction.
+    if (grossPay <= 150) {
+      taxBracket = 'A';
+      deducted = 0;
+    // If their pay is less than 150, their tax bracket is A and they have no deduction.
+    } else if (grossPay <= 500) {
+      taxBracket = 'B';
+      deducted = grossPay - (grossPay*0.1);
+    // If their pay is less than 150, their tax bracket is A and they have no deduction.
+    } else if (grossPay <= 750) {
+      taxBracket = 'C';
+      deducted = grossPay - (grossPay*0.2);
+    // If their pay is less than 150, their tax bracket is A and they have no deduction.
+    } else if (grossPay <= 1500) {
+      taxBracket = 'D';
+      deducted = grossPay - (grossPay*0.29);
+    // If their pay is less than 150, their tax bracket is A and they have no deduction.
+    } else {
+      taxBracket = 'E';
+      deducted = grossPay - (grossPay*0.35);
+    }
+    
+    double netPay = grossPay - deducted;
+    if (agree == 'y') {
+      netPay -= 20;
+    }
     
     
     
