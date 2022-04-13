@@ -1,7 +1,9 @@
 /* Simple taxation calculation program.
  * Calculates tax on a salary, and has optional donation to charity.
  * 
- * Steps for using: Input name, "Last, First"
+ * Steps for using:
+ * Input first name: "First"
+ * Input last name: "Last"
  * Input hourly pay, "13.40"
  * Input hours worked, "80"
  * Input agreeance to pay for charity, "Y", "N"
@@ -21,6 +23,15 @@ public class TaxationCalculator {
   public static void main(String[] args) {
     // Setup a scanner object to collect user input, via the standard System.in stream.
     Scanner scanner = new Scanner(System.in);
+    
+    // Ask the user for their first name.
+    System.out.print("Please enter your first name: ");
+    // Take user input.
+    String nameFirst = scanner.nextLine();
+    // Ask the user for their last name.
+    System.out.print("Please enter your last name: ");
+    // Take user input.
+    String nameLast = scanner.nextLine();
     
     // Close the scanner object when finished to clean up resources.
     scanner.close();
