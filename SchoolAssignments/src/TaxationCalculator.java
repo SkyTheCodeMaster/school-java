@@ -43,7 +43,7 @@ public class TaxationCalculator {
     double hoursWorked = Double.parseDouble(scanner.nextLine());
     
     // Ask the user if they want to contribute to charity.
-    System.out.print("Would you like to contribute to the Charity of Charityness? ");
+    System.out.print("Would you like to contribute to the United Way Charity? ");
     String tmp1 = scanner.nextLine();
     char agree = tmp1.toLowerCase().charAt(0);
     
@@ -91,7 +91,7 @@ public class TaxationCalculator {
     // Print out the net pay
     System.out.printf("Net pay: %.2f\n", netPay);
     // If they agreed to give to charity, display a message.
-    if (agree == 'y') { System.out.println("Thank you for your contribution to the Charity of Charityness."); }
+    if (agree == 'y') { System.out.println("Thank you for your contribution to the United Way Charity."); }
     
     // Close the scanner object when finished to clean up resources.
     scanner.close();
