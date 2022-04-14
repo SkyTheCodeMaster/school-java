@@ -47,8 +47,13 @@ public class TaxationCalculator {
     String tmp1 = scanner.nextLine();
     char agree = tmp1.toLowerCase().charAt(0);
     
+    // If the hours worked is over 40, calculate overtime
+    if (hoursWorked > 40) {
+      double overtime = hoursWorked-40;
+      hoursWorked -= 40;
+    }
     // Calculate gross pay
-    double grossPay = hoursWorked*hourlyWage;
+    double grossPay = (hoursWorked*hourlyWage)+(overtime*hourlyWage*1.5);
     
     // Calculate their tax bracket
     char taxBracket = 'Z';
