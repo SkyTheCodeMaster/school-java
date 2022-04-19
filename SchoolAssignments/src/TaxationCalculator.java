@@ -48,12 +48,12 @@ public class TaxationCalculator {
     char agree = tmp1.toLowerCase().charAt(0);
     
     // If the hours worked is over 40, calculate overtime
+    double overtime = 0;
     if (hoursWorked > 40) {
-      double overtime = hoursWorked-40;
-      hoursWorked -= 40;
+      overtime = hoursWorked-40; // Calculate the overtime
     }
     // Calculate gross pay
-    double grossPay = (hoursWorked*hourlyWage)+(overtime*hourlyWage*1.5);
+    double grossPay = (hoursWorked*hourlyWage)+(overtime*hourlyWage*0.5); // Add the extra half time for the amount of overtime hours worked.
     
     // Calculate their tax bracket
     char taxBracket = 'Z';
@@ -80,7 +80,9 @@ public class TaxationCalculator {
       deducted = (grossPay*0.35);
     }
     
+    // Calculate the net pay, by subtracting the tax from the gross pay.
     double netPay = grossPay - deducted;
+    // If the user said yes to donating to the charity, subtract 20 shekels from their net pay.
     if (agree == 'y') {
       netPay -= 20;
     }
