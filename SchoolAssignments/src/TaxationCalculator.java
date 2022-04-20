@@ -94,7 +94,7 @@ public class TaxationCalculator {
     // Print the gross pay
     System.out.printf("Gross pay: %.2f\n", grossPay);
     // Print out the tax bracket and deduction
-    System.out.printf("Tax bracket: %s\tTax deduction: %.2f\n",taxBracket,deducted);
+    System.out.printf("Tax bracket: %s   \tTax deduction: %.2f\n",taxBracket,deducted);
     // Print out the net pay
     System.out.printf("Net pay: %.2f\n", netPay);
     // If they agreed to give to charity, display a message.
