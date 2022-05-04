@@ -35,7 +35,7 @@ public class TaxationCalculator {
     String nameLast = scanner.nextLine();
     
     // Ask the user for their hourly wage.
-    System.out.print("Please enter your hourly wage: ");
+    System.out.print("Please enter your hourly rate: ");
     double hourlyWage = Double.parseDouble(scanner.nextLine());
     
     // Ask the user for their hours worked.
@@ -92,11 +92,11 @@ public class TaxationCalculator {
     // Print out the hours worked and rate
     System.out.printf("Hours worked: %.2f\tHourly rate: %.2f\n", hoursWorked,hourlyWage);
     // Print the gross pay
-    System.out.printf("Gross pay: %.2f\n", grossPay);
+    System.out.printf("Gross pay: $%.2f\n", grossPay);
     // Print out the tax bracket and deduction
-    System.out.printf("Tax bracket: %s   \tTax deduction: %.2f\n",taxBracket,deducted);
+    System.out.printf("Tax bracket: %s   \tTax deduction: $%.2f\n",taxBracket,deducted);
     // Print out the net pay
-    System.out.printf("Net pay: %.2f\n", netPay);
+    System.out.printf("Net pay: $%.2f\n", netPay);
     // If they agreed to give to charity, display a message.
     if (agree == 'y') { System.out.println("Thank you for your contribution to the United Way Charity."); }
     
