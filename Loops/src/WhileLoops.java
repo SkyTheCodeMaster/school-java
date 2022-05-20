@@ -6,7 +6,6 @@ public class WhileLoops {
     double last = 0;
     while (last != 9999) {
       double input = Double.parseDouble(scanner.nextLine());
-      inputs[inputs.length]= input; 
     }
   }
 }
