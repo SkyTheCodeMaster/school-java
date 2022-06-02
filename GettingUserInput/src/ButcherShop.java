@@ -37,5 +37,6 @@ public class ButcherShop {
     System.out.printf("Thank you for shopping at ButcherShop™!\nPlease come again soon, %s!",
       name
     );
+    scanner.close();
   }
 }

@@ -35,7 +35,7 @@ public class Primary extends JFrame implements ActionListener {
       fWin.setSize(500,300);
       fWin.setLocation(400,300);
       fWin.setVisible(true);
-    } else if (e.getSource == englishButton) {
+    } else if (e.getSource() == englishButton) {
       new EnglishWindow();
     } else if (e.getSource() == cartButton) {
       new CartWindow();

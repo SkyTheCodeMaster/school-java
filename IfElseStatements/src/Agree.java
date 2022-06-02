@@ -10,5 +10,6 @@ public class Agree {
     } else {
       System.out.println("See ya nerd lol");
     }
+    scanner.close();
   }
 }

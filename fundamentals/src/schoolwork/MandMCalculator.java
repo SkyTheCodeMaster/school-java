@@ -1,6 +1,7 @@
 package schoolwork;
 
 public class MandMCalculator {
+  @SuppressWarnings("unused")
   public static void main(String[] args) {
     final double total = 14;
     final double orange = 2;
