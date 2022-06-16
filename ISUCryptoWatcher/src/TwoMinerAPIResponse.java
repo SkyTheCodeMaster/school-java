@@ -9,11 +9,12 @@ public class TwoMinerAPIResponse extends APIResponse {
     String wallet, 
     String pool, 
     double paid, 
-    double unpaid, 
+    double unpaid,
+    String hashrate,
     HashMap<String, Double> last,
     HashMap<String, Double> pool_specific
   ) {
-    super(coin, price, wallet, pool, paid, unpaid, last);
+    super(coin, price, wallet, pool, paid, unpaid, hashrate, last);
     this.pool_specific = pool_specific;
   }
 }

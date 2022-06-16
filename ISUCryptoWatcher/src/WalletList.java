@@ -35,12 +35,22 @@ public class WalletList {
     return data;
   }
   
-  public void addWallet(Wallet wallet) {
+  public boolean addWallet(Wallet wallet) {
     this.wallets.add(wallet);
     boolean success = FileUtils.write(this.path, toJson());
     if (!success) {
       System.out.println("Failed writing wallets!");
     }
+    return success;
+  }
+  
+  public boolean removeWallet(Wallet wallet) {
+    this.wallets.remove(wallet);
+    boolean success = FileUtils.write(this.path, toJson());
+    if (!success) {
+      System.out.println("Failed writing wallets!");
+    }
+    return success;
   }
   
   public ArrayList<Wallet> findWallet(String walletID) {

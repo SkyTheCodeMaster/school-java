@@ -13,36 +13,36 @@ import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 public class MainWindow extends JFrame{
+  JButton settings;
   public MainWindow() throws IOException {
-    super("Window");
+    super("Crypto Watcher");
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    setSize(1000,600);
-    setLayout(new BorderLayout());
+    setSize(400,600);
+    setLayout(null);
     setVisible(true);
-    
-    JPanel bottomPanel = new JPanel();
-    bottomPanel.setLayout(new BorderLayout());
-    bottomPanel.setVisible(true);
-    JPanel settingsPanel = new JPanel();
-    settingsPanel.setLayout(new BorderLayout());
-    settingsPanel.setVisible(true);
-    bottomPanel.add(settingsPanel,BorderLayout.EAST);
-    
+
     Image img = ImageIO.read(getClass().getResource("assets/settings.png"));
-    JButton settings = new JButton(new ImageIcon(img));
+    settings = new JButton(new ImageIcon(img));
     settings.setSize(32,32);
     settings.setVisible(true);
+    System.out.println(getWidth());
+    System.out.println(getHeight());
+    settings.setLocation(getWidth()-64,getHeight()-96);
+    System.out.println(settings.getLocation());
     settings.addActionListener(new SettingsListener());
-    settingsPanel.add(settings);
-    
-    add(bottomPanel,BorderLayout.PAGE_END);
+    add(settings);
+
     revalidate();
     repaint();
   }
   
   private class SettingsListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
-      System.out.println(e);
+      if (e.getSource() == settings) {
+        System.out.println("A");
+      //  new SettingsWindow();
+        System.out.println("A");
+      }
     }
   }
 }
