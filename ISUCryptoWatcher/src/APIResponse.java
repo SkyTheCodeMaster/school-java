@@ -9,8 +9,9 @@ public class APIResponse {
   public String hashrate;
   public HashMap<String,Double> last;
   public HashMap<String,Double> price;
+  public HashMap<String,Object> pool_specific;
   
-  public APIResponse(String coin, HashMap<String,Double> price, String wallet, String pool, double paid, double unpaid, String hashrate, HashMap<String,Double> last) {
+  public APIResponse(String coin, HashMap<String,Double> price, String wallet, String pool, double paid, double unpaid, String hashrate, HashMap<String,Double> last, HashMap<String,Object> pool_specific) {
     this.coin = coin;
     this.price = price;
     this.wallet = wallet;

@@ -1,3 +1,4 @@
+import com.google.gson.Gson;
 
 public class Wallet {
   public String wallet;
@@ -19,11 +20,25 @@ public class Wallet {
     this.icon = icon;
   }
   
+  public APIResponse get() {
+    Gson gson = new Gson();
+    String URL_TEMPLATE = "https://crypto.skystuff.games/%s/%s";
+    String response = HTTPUtils.get(URL_TEMPLATE.formatted(this.pool,this.wallet));
+    APIResponse resp = gson.fromJson(response, APIResponse.class);
+    return resp;
+  }
+  
   public String toString() {
-    return String.format("Wallet [wallet=%s coin=%s pool=%s url=%s icon=%s", this.wallet,this.coin,this.pool,this.url,this.icon);
+    return String.format("Wallet [wallet=%s coin=%s pool=%s url=%s icon=%s]", this.wallet,this.coin,this.pool,this.url,this.icon);
   }
   
   public boolean equals(String walletID) {
     return this.wallet.equals(walletID);
   }
+  
+  public boolean equals(Wallet otherWallet) {
+    return this.wallet.equals(otherWallet.wallet);
+  }
+  
+  
 }

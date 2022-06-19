@@ -3,8 +3,11 @@ import java.io.FileWriter;
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class FileUtils {
+  private Gson gson = new Gson();
   static void ensureFile(String path){
     try {
       File file = new File(path);
@@ -15,11 +18,7 @@ public class FileUtils {
   public static String read(String path) {
     try {
       ensureFile(path);
-      File file = new File(path);
-      Scanner scanner = new Scanner(file);
-      String data = scanner.next();
-      scanner.close();
-      return data;
+      return Files.readString(Path.of(path));
     } catch (IOException e) {
       return "";
     }

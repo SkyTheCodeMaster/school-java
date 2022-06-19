@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "wallet":"0x9f7093042437238394b69285dA89092a2e9a4877",
+    "pool":"2miner",
+    "coin":"eth",
+    "url":"https://eth.2miners.com/account/0x9f7093042437238394b69285dA89092a2e9a4877",
+    "icon":""
+  }
+]

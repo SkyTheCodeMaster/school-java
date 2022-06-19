@@ -22,8 +22,9 @@ public class WalletList {
       System.out.println("Error encountered during loading wallets!\nWallets will not be available!");
       contents = "[]";
     }
-    Type walletListType = new TypeToken<ArrayList<Wallet>>(){}.getType();
-    this.wallets = gson.fromJson(contents,walletListType);
+    //Type walletListType = new TypeToken<ArrayList<Wallet>>(){}.getType();
+    System.out.println(contents);
+    this.wallets = gson.fromJson(contents,new TypeToken<ArrayList<Wallet>>(){}.getType());
     // debug print wheeeee
     for (Wallet wallet : this.wallets) {
       System.out.println(wallet);

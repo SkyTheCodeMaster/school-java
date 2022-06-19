@@ -1,31 +1,63 @@
-import java.awt.BorderLayout;
-import java.awt.Image;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.awt.BorderLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.JPanel;
-import javax.swing.ImageIcon;
-import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 public class SettingsWindow extends JFrame {
   public SettingsWindow() {
     super("Settings");
-    System.out.println("A");
-    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    setSize(600,400);
-    setLayout(null);
-    setVisible(true);
+
+    JPanel buttonPanel = new JPanel();
+    buttonPanel.setLayout(new GridBagLayout());
+    buttonPanel.setSize(300,400); // whatever
+
+    // the scrollpane
+    JScrollPane pane = new JScrollPane();
+    pane.setSize(300,400);
+
+    GridBagConstraints constraint = new GridBagConstraints();
+    constraint.anchor = GridBagConstraints.WEST;
+    constraint.fill = GridBagConstraints.NONE;
+    constraint.gridx = 0;
+    constraint.gridy = GridBagConstraints.RELATIVE;
+    constraint.weightx = 1.0f;
+    constraint.weighty = 1.0f;
     
-    JScrollPane scrollPane = new JScrollPane();
-    scrollPane.setLocation(0,0);
-    scrollPane.setSize(300,400);
-    add(scrollPane);
+    for (Wallet wallet : ISUMain.wallets.wallets) {
+      JButton button = new JButton();
+      button.setText(String.format("%s | %s",wallet.coin,wallet.pool));
+
+      class buttonListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+          new WalletWindow(wallet);
+        }
+      }
+      button.addActionListener(new buttonListener());
+      buttonPanel.add(button,constraint);
+    }
+
+    pane.setViewportView(buttonPanel);
+    add(pane);
+
+    GridBagConstraints addConstraint = new GridBagConstraints();
+    addConstraint.anchor = GridBagConstraints.EAST;
+    addConstraint.fill = GridBagConstraints.NONE;
+    addConstraint.gridx = 0;
+    addConstraint.gridy = GridBagConstraints.RELATIVE;
+    addConstraint.weightx = 0.5f;
+    addConstraint.weighty = 1.0f;
+    
+    JButton addButton = new JButton("Add Wallet");
+    addButton.addActionListener(new AddActionListener());
+    
+    setSize(600,400);
+    setVisible(true);
+    setLayout(new BorderLayout());
     revalidate();
     repaint();
   }
@@ -33,5 +65,11 @@ public class SettingsWindow extends JFrame {
   public void debug() {
     System.out.println("settings-debug");
     System.out.println("A");
+  }
+  
+  private class AddActionListener implements ActionListener {
+    public void actionPerformed(ActionEvent e) {
+      new WalletWindow();
+    }
   }
 }
