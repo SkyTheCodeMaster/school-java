@@ -23,7 +23,9 @@ public class Wallet {
   public APIResponse get() {
     Gson gson = new Gson();
     String URL_TEMPLATE = "https://crypto.skystuff.games/%s/%s";
-    String response = HTTPUtils.get(URL_TEMPLATE.formatted(this.pool,this.wallet));
+    System.out.println(String.format(URL_TEMPLATE,this.pool,this.url));
+    String response = HTTPUtils.get(String.format(URL_TEMPLATE,this.pool,this.url));
+    System.out.println(response);
     APIResponse resp = gson.fromJson(response, APIResponse.class);
     return resp;
   }
